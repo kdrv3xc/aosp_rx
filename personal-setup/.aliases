@@ -1,0 +1,70 @@
+## mgmtalias pacaur='pacaur --noedit'
+alias pik='sudo pikaur --noconfirm'
+alias pacsyu='sudo pacman -Syu'
+alias pacq='pacman -Q'
+alias ip='sudo ip'
+alias pacr='sudo pacman -R'
+alias pacman='sudo pacman'
+alias pacs='pacaur --noconfirm -S $1'
+alias pacsc='pacaur -Scc'
+alias dmesg='sudo dmesg'
+alias htop='sudo htop'
+alias systemctl='sudo systemctl'
+alias sysstop='systemctl stop'
+alias sysr='systemctl restart'
+alias sysgo='systemctl start'
+alias sysls='systemctl status'
+alias usbg='sudo usbguard'
+alias usbgd='usbg list-devices'
+alias usbga='usbga allow-devices --permamnent'
+alias amix='alsamixer -c 0'
+
+## ls et al
+#alias lld='lsd -lA --group-dirs-first --depth 2 '
+alias lls='exa -lhaG --sort size'
+alias llm='exa -lhaG --sort time'
+alias ll='exa -lhaG --group-directories-first'
+alias lla='exa -lhaG -s extension --group-directories-first'
+alias lll='ll -R'
+alias llt='ll -T'
+alias df='df -Th'
+
+## deluge-console
+alias dcls="deluge-console info --verbose"
+alias dcadd="deluge-console add"
+alias dcrm="deluge-console rm"
+
+#alias net="sudo net"
+alias du1="du -chxd 1"
+alias du1s="du1 $1 |sort -h"
+alias du2="du -chxd 2"
+alias du2s="du2 |sort -h"
+## rc
+alias ssharchprimes='ssh -i /home/primes/.ssh/archprimes.ll 10.0.0.202'
+alias sshdf0='ssh -i ~/.ssh/oci.pem 129.146.52.16'
+alias sshprimes='ssh -i ~/.ssh/primesx2 $1'
+#alias scprimes='scp -r -i ~/.ssh/primesx2 $
+alias sshagent='eval "$(ssh-agent -s)"'
+
+##misc
+alias xmrwallet='cd ~/.xmr && monero-wallet-cli'
+#alias volmix='alsamixer'
+alias setvol='pulsemixer --set-volume '
+alias pmixr='pulsemixer'
+
+
+#debian
+alias apt='sudo apt'
+
+alias vybld='cd ~/projects/vyos-build && docker pull vyos/vyos-build:current && \
+    docker run --rm -it \
+    --hostname 7072696d6573 \
+    -v "$(pwd)":/vyos \
+    -v "$HOME/.gitconfig":/etc/gitconfig \
+    -v "$HOME/.bash_aliases":/home/vyos_bld/.bash_aliases \
+    -v "$HOME/.bashrc":/home/vyos_bld/.bashrc \
+    -v "$HOME/.aliases":/home/vyos_bld/.aliases \
+    -w /vyos --privileged --sysctl net.ipv6.conf.lo.disable_ipv6=0 \
+    -e GOSU_UID=$(id -u) -e GOSU_GID=$(id -g) \
+    vyos/vyos-build:current bash'
+
